@@ -1,1 +1,0 @@
-python --% -c "import sqlite3, pandas as pd; conn = sqlite3.connect('data/wihh.db'); print(pd.read_sql('SELECT f.valid_date_wib, ROUND(f.tmax_c,1) AS forecast_tmax, o.tmax AS observed_tmax FROM forecast_daily f JOIN daily_summary o ON f.valid_date_wib = o.date_wib WHERE f.model = \"era5_archive\" ORDER BY f.valid_date_wib', conn).to_string(index=False))"
